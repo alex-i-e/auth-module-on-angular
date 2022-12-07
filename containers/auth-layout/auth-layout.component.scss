@@ -1,0 +1,27 @@
+@import '~app-components/styles/global';
+@import '../../../../../mixins';
+
+.container {
+  @include background('../../../../../assets');
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+twc-logo {
+  margin-top: 4%;
+  margin-bottom: 4%;
+  height: 8rem;
+}
+
+.card {
+  @include card-box-shadow();
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 60rem;
+  border-radius: 1.6rem;
+  background-color: $card-background-color;
+}

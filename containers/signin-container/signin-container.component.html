@@ -1,0 +1,43 @@
+<app-auth-layout class="auth-layout">
+  <div class="title">Log In</div>
+  <div class="subtitle">Sign in to continue to PLATFORM</div>
+  <form id="qa-signin-form" nz-form [formGroup]="singInForm">
+    <nz-form-item class="form-item username-form-item">
+      <nz-form-label nzFor="qa-signin-form-username" nzNoColon>Email</nz-form-label>
+      <nz-form-control nzErrorTip="{{ formErrors.username }}">
+        <twc-input class="input-field" id="qa-signin-form-username" formControlName="username"></twc-input>
+      </nz-form-control>
+    </nz-form-item>
+    <nz-form-item class="form-item password-form-item">
+      <nz-form-label nzFor="qa-signin-form-password" nzNoColon>Password</nz-form-label>
+      <nz-form-control nzErrorTip="{{ formErrors.password }}">
+        <twc-input
+          class="input-field"
+          [type]="'password'"
+          id="qa-signin-form-password"
+          formControlName="password"
+        ></twc-input>
+      </nz-form-control>
+    </nz-form-item>
+    <div class="options">
+      <twc-checkbox
+        (checkboxChange)="rememberMeChecked($event)"
+        label="Stay Signed In"
+        id="qa-signin-form-stay-sign-in"
+      ></twc-checkbox>
+      <twc-link
+        id="qa-signin-form-forgot-password"
+        (click)="navigateWithState()">
+        Forgot Password?
+      </twc-link>
+    </div>
+    <twc-button
+      id="qa-signin-form-submit"
+      [nzType]="'primary'"
+      [disabled]="!isFormValid"
+      class="submit-button"
+      (handleClick)="login()"
+    >Log In
+    </twc-button>
+  </form>
+</app-auth-layout>
